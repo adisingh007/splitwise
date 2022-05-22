@@ -11,7 +11,7 @@ public class BalanceSheetTest {
                 4,
                 new String[]{"user1", "user2", "user3", "user4"},
                 SplitType.EXACT,
-                new float[]{200f, 300f, 250f, 250f});
+                new Float[]{200f, 300f, 250f, 250f});
 
         Expense expense2 = new Expense(1000f,
                 "user2",
@@ -41,7 +41,7 @@ public class BalanceSheetTest {
                 4,
                 new String[]{"user1", "user2", "user3", "user4"},
                 SplitType.EXACT,
-                new float[]{200f, 300f, 250f, 250f});
+                new Float[]{200f, 300f, 250f, 250f});
 
         Expense expense2 = new Expense(1000f,
                 "user2",
@@ -73,7 +73,7 @@ public class BalanceSheetTest {
                 4,
                 new String[]{"user1", "user2", "user3", "user4"},
                 SplitType.EXACT,
-                new float[]{200f, 300f, 250f, 250f});
+                new Float[]{200f, 300f, 250f, 250f});
 
         Expense expense2 = new Expense(1000f,
                 "user2",
@@ -102,7 +102,7 @@ public class BalanceSheetTest {
                 4,
                 new String[]{"user1", "user2", "user3", "user4"},
                 SplitType.EXACT,
-                new float[]{200f, 300f, 250f, 250f});
+                new Float[]{200f, 300f, 250f, 250f});
 
         Expense expense2 = new Expense(1000f,
                 "user2",
@@ -114,7 +114,7 @@ public class BalanceSheetTest {
                 4,
                 new String[]{"user1", "user2", "user3", "user4"},
                 SplitType.PERCENT,
-                new float[]{30, 40, 13, 17});
+                new Float[]{30f, 40f, 13f, 17f});
 
 
         BalanceSheet balanceSheet = new BalanceSheet();
@@ -145,14 +145,14 @@ public class BalanceSheetTest {
                 4,
                 new String[] {"user1", "user2", "user3", "user4"},
                 SplitType.EXACT,
-                new float[] {250, 250, 250, 250});
+                new Float[] {250f, 250f, 250f, 250f});
 
         Expense expense3 = new Expense(1000,
                 "user3",
                 4,
                 new String[] {"user1", "user2", "user3", "user4"},
                 SplitType.PERCENT,
-                new float[] {25, 25, 25, 25});
+                new Float[] {25f, 25f, 25f, 25f});
 
         Expense expense4 = new Expense(1000,
                 "user4",
@@ -166,6 +166,9 @@ public class BalanceSheetTest {
         balanceSheet.createExpense(expense4);
 
         Map<String, Map<String, Float>> balances = balanceSheet.show();
-        System.out.println(balances);
+        Assert.assertEquals(balances.get("user1").size(), 0);
+        Assert.assertEquals(balances.get("user2").size(), 0);
+        Assert.assertEquals(balances.get("user3").size(), 0);
+        Assert.assertEquals(balances.get("user4").size(), 0);
     }
 }

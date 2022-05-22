@@ -4,14 +4,14 @@ public class Expense {
     private final int numberOfUsers;
     private final String[] listOfUsers;
     private final SplitType splitType;
-    private final float[] amounts;
+    private final Float[] amounts;
 
     public Expense(float amount,
                    String payerId,
                    int numberOfUsers,
                    String[] listOfUsers,
                    SplitType splitType,
-                   float[] amounts) {
+                   Float[] amounts) {
         this.amount = amount;
         this.payerId = payerId;
         this.numberOfUsers = numberOfUsers;
@@ -37,33 +37,21 @@ public class Expense {
         this.splitType = SplitType.EQUAL;
 
         float perPersonAmount = amount / numberOfUsers; // 0 ArithmeticException
-        this.amounts = new float[numberOfUsers];
+        this.amounts = new Float[numberOfUsers];
         for(int i = 0; i < numberOfUsers; i++) {
             amounts[i] = perPersonAmount;
         }
-    }
-
-    public float getAmount() {
-        return amount;
     }
 
     public String getPayerId() {
         return payerId;
     }
 
-    public int getNumberOfUsers() {
-        return numberOfUsers;
-    }
-
     public String[] getListOfUsers() {
         return listOfUsers;
     }
 
-    public float[] getAmounts() {
+    public Float[] getAmounts() {
         return amounts;
-    }
-
-    public SplitType getSplitType() {
-        return splitType;
     }
 }

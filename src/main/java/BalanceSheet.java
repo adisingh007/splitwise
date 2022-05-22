@@ -10,7 +10,7 @@ public class BalanceSheet {
     public void createExpense(Expense expense) {
         String payerId = expense.getPayerId();
         String[] userList = expense.getListOfUsers();
-        float[] amounts = expense.getAmounts();
+        Float[] amounts = expense.getAmounts();
 
         for(int i = 0; i < userList.length; i++) {
             if(userList[i].equals(payerId)) continue; // One cannot owe themselves
